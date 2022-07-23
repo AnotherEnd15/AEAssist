@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
@@ -8,10 +9,18 @@ namespace AEAssist.AI.Scholar.Ability
 {
     public class ScholarAbility_EnergyDrain2 : IAIHandler
     {
-        uint spell;
+        uint spell;        
         static public uint GetSpell()
         {
-            if (ActionResourceManager.Scholar.Aetherflow > 1)//能量吸收判定
+            List<uint> raidbuffs = new List<uint>
+            {
+                AurasDefine.ChainStratagem
+            };
+            if (Core.Me.HasAura(AurasDefine.Dissipation) && ActionResourceManager.Scholar.Aetherflow > 0 && SpellsDefine.Aetherflow.IsReady())
+            {
+                return SpellsDefine.EnergyDrain2;//打空转化豆子
+            }
+            if (ActionResourceManager.Scholar.Aetherflow > 0 && SpellsDefine.Aetherflow.CoolDownInGCDs(3))//吸收转好前打光豆子
                 return SpellsDefine.EnergyDrain2;
             return 0;
         }

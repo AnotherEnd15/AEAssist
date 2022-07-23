@@ -237,5 +237,26 @@ namespace AEAssist.AI.Reaper
             if (TargetHelper.CheckNeedUseAOE(5, 5)) spell = SpellsDefine.WhorlOfDeath;
             return spell.GetSpellEntity();
         }
+        
+        public static bool GibbetPOSCheck()
+        {
+            // Gibbet
+            if (Core.Me.HasAura(AurasDefine.EnhancedGibbet) && !Core.Me.CurrentTarget.IsFlanking)
+            {
+                return true;
+            }
+            return false;
+        }
+        
+        public static bool GallowsPOSCheck()
+        {
+            // Gallows
+            if (Core.Me.HasAura(AurasDefine.EnhancedGallows) && !Core.Me.CurrentTarget.IsBehind)
+            {
+                return true;
+            }
+            
+            return false;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace AEAssist.TriggerSystem.TriggerCond
                 {
                     if (!v.Name.Contains(cond.Name) && v.NpcId.ToString() != cond.Name)
                         continue;
-                    if (v.CurrentHealthPercent * 100 <= cond.HpPct)
+                    if (v.CurrentHealthPercent <= cond.HpPct)
                     {
                         AIRoot.GetBattleData<BattleData>().RecordCondHitTime(cond);
                         return false;

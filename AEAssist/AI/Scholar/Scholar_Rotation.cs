@@ -11,10 +11,9 @@ namespace AEAssist.AI.Scholar
     {
         public void Init()
         {
-            //CountDownHandler.Instance.AddListener(1500,
-            //    () => PotionHelper.UsePotion(SettingMgr.GetSetting<GeneralSettings>().MindPotionId));
-
-
+            CountDownHandler.Instance.AddListener(2500, () =>
+            PotionHelper.UsePotion(SettingMgr.GetSetting<GeneralSettings>().MindPotionId));
+            CountDownHandler.Instance.AddListener(1500, () => SpellsDefine.SchRuin.DoGCD());            
             AEAssist.DataBinding.Instance.EarlyDecisionMode = SettingMgr.GetSetting<ScholarSettings>().EarlyDecisionMode;
         }
         public Task<bool> PreCombatBuff()

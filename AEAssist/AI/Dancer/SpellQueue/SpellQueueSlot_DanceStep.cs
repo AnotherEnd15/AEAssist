@@ -1,4 +1,5 @@
-﻿using AEAssist.Define;
+using System.Linq;
+using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
@@ -32,14 +33,17 @@ namespace AEAssist.AI.Dancer.SpellQueue
 
         public void Fill(SpellQueueSlot slot)
         {
-            slot.SetBreakCondition(() => this.Check(0));
-            foreach (var v in ActionResourceManager.Dancer.Steps)
+            slot.SetBreakCondition(()=>this.Check(0));
+            if (ActionResourceManager.Dancer.CurrentStep != ActionResourceManager.Dancer.DanceStep.Finish)
             {
-                if (v == ActionResourceManager.Dancer.DanceStep.Finish)
-                    continue;
-                var spell = DancerSpellHelper.GetDanceStep(v);
-                LogHelper.Info($"Queue Step: {v} {spell.SpellData.LocalizedName}");
-                slot.EnqueueGCD((spell.Id, SpellTargetType.Self));
+                foreach (var v in ActionResourceManager.Dancer.Steps.SkipWhile(step => step != ActionResourceManager.Dancer.CurrentStep))
+                {
+                    if(v == ActionResourceManager.Dancer.DanceStep.Finish)
+                        continue;
+                    var spell = DancerSpellHelper.GetDanceStep(v);
+                    LogHelper.Info($"Queue Step: {v} {spell.SpellData.LocalizedName}");
+                    slot.EnqueueGCD((spell.Id, SpellTargetType.Self));
+                }
             }
         }
     }

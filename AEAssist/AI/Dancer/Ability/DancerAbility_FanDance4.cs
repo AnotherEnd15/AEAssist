@@ -23,18 +23,15 @@ namespace AEAssist.AI.Dancer.Ability
             {
                 return 1;
             }
-
-            if (Core.Me.HasAura(AurasDefine.FourfoldFanDance) ||
-                (SpellsDefine.Flourish.RecentlyUsed() && !SpellsDefine.FanDanceIV.RecentlyUsed()))
+            if (!Core.Me.HasAura(AurasDefine.Devilment))
             {
                 double doubletime = SpellsDefine.Devilment.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds + AIRoot.Instance.GetGCDDuration() * 2;
                 int time = (int)doubletime;
-                if (Core.Me.HasMyAuraWithTimeleft(AurasDefine.FourfoldFanDance, time))
+                if (Core.Me.HasMyAuraWithTimeleft(AurasDefine.FourfoldFanDance, time) || SpellsDefine.Flourish.RecentlyUsed())
                 {
                     return -2;
                 }
             }
-
 
             return 0;
         }

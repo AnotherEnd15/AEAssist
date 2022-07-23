@@ -59,9 +59,14 @@
                                   IsChecked="{Binding UseAOE,Mode=TwoWay}" />
                         
                         <CheckBox HorizontalContentAlignment="Center"
-                                  Content="Flourish"
+                                  Content="{Binding Language.Toggle_Flourish}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding UseFlourish,Mode=TwoWay}" />
+                        
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.Toggle_SaberDance}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding UseSaberDance,Mode=TwoWay}" />
                         
                         <CheckBox HorizontalContentAlignment="Center"
                                   Content="{Binding Language.Toggle_Potion}"

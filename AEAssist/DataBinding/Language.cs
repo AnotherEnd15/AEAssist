@@ -169,6 +169,12 @@ namespace AEAssist
         public string ToolTip_MCH_WildFireFirst { get; set; }
         public string ToolTip_MCH_Burst { get; set; }
         #endregion
+        
+        #region DNC
+        public string Toggle_Flourish { get; set; }
+        public string Toggle_SaberDance { get; set; }
+
+        #endregion
 
         #region RPR
 
@@ -225,6 +231,17 @@ namespace AEAssist
         public string Engagement { get; set; }
         public string Fleche { get; set; }
         public string ContreSixte { get; set; }
+        #endregion
+
+        #region Dragoon
+        public string LifeSurge { get; set; }
+        public string LanceCharge { get; set; }
+        public string SpineshatterDive { get; set; }
+        public string DragonfireDive { get; set; }
+        public string BattleLitany { get; set; }
+        public string Jump { get; set; }
+        public string WyrmwindThrust { get; set; }
+        public string Geirskogul { get; set; }
         #endregion
 
         #region Healer

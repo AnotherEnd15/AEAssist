@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="AEAssist.View.Overlay.DragoonOverlayWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:AEAssist"
+             xmlns:dataBinding="clr-namespace:AEAssist"
+             xmlns:view="clr-namespace:AEAssist.View"
+             mc:Ignorable="d"
+             Width="250"
+             FontSize="12"
+             Background="#62808080">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AEAssist;component/View/Style/Button.xaml" />
+                <ResourceDictionary Source="/AEAssist;component/View/Style/CheckBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.RenderTransform>
+        <ScaleTransform ScaleX="{Binding GeneralSettings.OverlayScale_X}"
+                        ScaleY="{Binding GeneralSettings.OverlayScale_Y}"/>
+    </UserControl.RenderTransform>
+
+    <UserControl.DataContext>
+        <Binding Source="{x:Static dataBinding:DataBinding.Instance}" />
+    </UserControl.DataContext>
+
+    <StackPanel>
+        <view:OverlayHeader />
+        <Border Visibility="{Binding OverlayVisibility, Converter={StaticResource BoolToVis}}" VerticalAlignment="Top">
+            <Border.Background>
+                <SolidColorBrush Color="#101011" Opacity="0.6" />
+            </Border.Background>
+            <StackPanel Margin="5">
+                <WrapPanel Width="250" Orientation="Horizontal" HorizontalAlignment="Center"
+                           VerticalAlignment="Top">
+
+
+                    <WrapPanel>
+                        <CheckBox
+                            Content="{Binding HotkeySetting.StopBtnName}"
+                            Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                            IsChecked="{Binding Stop,Mode=TwoWay}" />
+
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="AOE"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding UseAOE,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="全自动模式"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.EarlyDecisionMode,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.LifeSurge}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.LifeSurge,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.LanceCharge}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.LanceCharge,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.SpineshatterDive}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.SpineshatterDive,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.DragonfireDive}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.DragonfireDive,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.BattleLitany}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.BattleLitany,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.Jump}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.Jump,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.WyrmwindThrust}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.WyrmwindThrust,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.Geirskogul}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding DragoonSettings.Geirskogul,Mode=TwoWay}" />
+                    </WrapPanel>
+                    <WrapPanel Margin="10">
+                        <Button Style="{StaticResource ImageButton}"
+                                Width="30" Height="30" Margin="2" Name="UsePotion"
+                                Click="UsePotion_OnClick">
+                            <Image Source="../../Resources/Spells/Potion.png" Stretch="Uniform" />
+
+                        </Button>
+                    </WrapPanel>
+
+                    <StackPanel Margin="5"  Orientation="Horizontal">
+                        <Button Style="{StaticResource ImageButton}"
+                                Width="40" Height="40" Margin="6,2,6,2" Name="UseArmsLength"
+                                Click="UseArmsLength_OnClick">
+                            <Image Source="../../Resources/Spells/TankRoleActions/ArmsLength.png"
+                                   Stretch="Uniform" />
+                        </Button>
+
+                        <Button Style="{StaticResource ImageButton}"
+                                Width="40" Height="40" Margin="6,2,6,2" Name="UseSprint"
+                                Click="UseSprint_OnClick">
+                            <Image Source="../../Resources/Spells/Sprint.png" Stretch="Uniform" />
+                        </Button>
+                    </StackPanel>
+                </WrapPanel>
+                <view:CommonOverlay HorizontalAlignment="Center" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

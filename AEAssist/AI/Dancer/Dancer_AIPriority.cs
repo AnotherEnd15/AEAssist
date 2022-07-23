@@ -18,8 +18,8 @@ namespace AEAssist.AI.Dancer
             new DancerGCD_TechnicalStep(),
             new DancerGCD_BaseComboSave(),
             new DancerGCD_Procs(),
-            new DancerGCD_SaberDanceBurstWindow(),
             new DancerGCD_StarfallDance(),
+            new DancerGCD_SaberDanceBurstWindow(),
             new DancerGCD_Tillana(),
             new DancerGCD_StandardStep(),
             new DancerGCD_BaseGCD()

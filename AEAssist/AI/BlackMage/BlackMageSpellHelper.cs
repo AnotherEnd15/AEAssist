@@ -213,6 +213,8 @@ namespace AEAssist.AI.BlackMage
                 {
                     // if ActionManager.LastSpell.Id; != 上一个ActionManager.LastSpell.Id; 
                     // we can move
+                    MovementManager.MoveForwardStart();
+                    MovementManager.MoveStop();
                 }
             }
 

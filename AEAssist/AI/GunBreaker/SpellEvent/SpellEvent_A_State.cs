@@ -1,4 +1,5 @@
 ﻿using AEAssist.Define;
+using AEAssist.Helper;
 
 namespace AEAssist.AI.GunBreaker.SpellEvent
 {
@@ -7,7 +8,8 @@ namespace AEAssist.AI.GunBreaker.SpellEvent
     {
         public void Run(uint spellId)
         {
-            AIRoot.GetBattleData<GunBreakerBattleData>().A_State = true;
+            if (SpellsDefine.NoMercy.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds < 3000)
+                AIRoot.GetBattleData<GunBreakerBattleData>().A_State = true;
         }
     }
 }

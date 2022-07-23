@@ -3,6 +3,7 @@ using AEAssist.AI.Samurai;
 using ff14bot.Enums;
 using System.Collections.Generic;
 using System.Linq;
+using AEAssist.AI.Reaper;
 
 namespace AEAssist.Utilities.CombatMessages
 {
@@ -131,7 +132,7 @@ namespace AEAssist.Utilities.CombatMessages
                     break;
 
                 case ClassJobType.Reaper:
-                    // ReaperCombatMessageStrategy.RegisterCombatMessages();
+                    ReaperCombatMessageStrategy.RegisterCombatMessages();
                     break;
             }
         }

@@ -234,7 +234,7 @@ namespace AEAssist.Helper
             var baseGCDTime = RotationManager.Instance.GetBaseGCDSpell().AdjustedCooldown.TotalMilliseconds;
             var TargetSpellCoolDown = spellData.Cooldown.TotalMilliseconds;
             //come up in this window
-            var delta = TimeHelper.Now() - AIRoot.GetBattleData<BattleData>().lastCastTime;
+            var delta = TimeHelper.Now() - (AIRoot.GetBattleData<BattleData>().lastCastTime + 300);
             if (delta + TargetSpellCoolDown <
                 baseGCDTime * (count + 1) - SettingMgr.GetSetting<GeneralSettings>().ActionQueueMs)
             {
@@ -249,7 +249,32 @@ namespace AEAssist.Helper
             return SpellData.AbilityCoolDownInNextXGCDsWindow(count);
         }
 
-
+        public static int AbilityComesInNextXGCDsWindow(this SpellData spellData)
+        {
+            var baseGCDTime = RotationManager.Instance.GetBaseGCDSpell().AdjustedCooldown.TotalMilliseconds;
+            var TargetSpellCoolDown = spellData.Cooldown.TotalMilliseconds;
+            if (spellData.Cooldown == TimeSpan.Zero)
+            {
+                return 0;
+            }
+            var delta = TimeHelper.Now() - AIRoot.GetBattleData<BattleData>().lastCastTime;
+            int count = 0;
+            while (true)
+            {
+                if (delta + TargetSpellCoolDown <
+                    baseGCDTime * (count + 1) - SettingMgr.GetSetting<GeneralSettings>().ActionQueueMs)
+                {
+                    return count;
+                }
+                count++;
+            }
+        }
+        
+        public static int AbilityComesInNextXGCDsWindow(this uint spellId)
+        {
+            var SpellData = spellId.GetSpellEntity().SpellData;
+            return SpellData.AbilityComesInNextXGCDsWindow();
+        }
 
         public static Task<bool> DoGCD(this uint spellId)
         {

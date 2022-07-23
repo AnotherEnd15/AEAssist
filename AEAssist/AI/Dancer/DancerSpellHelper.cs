@@ -60,7 +60,7 @@ namespace AEAssist.AI.Dancer
 
         private static async Task<SpellEntity> UseProcSingleCombo(GameObject target)
         {
-            if (Core.Me.HasAura(AurasDefine.FlourshingFlow))
+            if (Core.Me.HasAura(AurasDefine.FlourshingFlow) || SpellsDefine.Flourish.RecentlyUsed())
             {
                 if (SpellsDefine.Fountainfall.IsUnlock())
                 {

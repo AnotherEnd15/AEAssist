@@ -33,6 +33,12 @@
                           Content="{Binding Language.Toggle_EarlyDecisionMode}" Width="200" Height="25"
                           HorizontalAlignment="Left"
                           IsChecked="{Binding ReaperSettings.EarlyDecisionMode,Mode=TwoWay}" />
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0">
+                    <Label Content="{Binding Language.Label_ChooseOpener}" Width="100" />
+                    <ComboBox IsEditable="False" Name="ChooseOpener" Width="150" DisplayMemberPath="Name"
+                              SelectedValuePath="Name" SelectionChanged="ChooseOpener_OnSelectionChanged" />
+                </StackPanel>
             </StackPanel>
         </TabItem>
 

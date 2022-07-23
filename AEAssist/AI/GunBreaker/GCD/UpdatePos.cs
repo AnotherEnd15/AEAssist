@@ -10,7 +10,10 @@ namespace AEAssist.AI.GunBreaker.GCD
     {
         public int Check(SpellEntity lastSpell)
         {
-            var dis = (int)Math.Round(TargetHelper.GetTargetDistanceFromMeTest(Core.Me, Core.Me.CurrentTarget) * 100);
+            var disc = TargetHelper.GetTargetDistanceFromMeTest(Core.Me, Core.Me.CurrentTarget);
+            DataBinding.Instance.Gnbdis = disc;
+            DataBinding.Instance.GNBdisg = "目标圈距离：" + disc.ToString("0.00");
+            var dis = (int)Math.Round(disc * 100);
             if (Core.Me.HasTarget)
             {
                 if (dis<250)

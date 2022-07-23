@@ -3,6 +3,7 @@ using AEAssist.Define;
 using ff14bot;
 using ff14bot.Objects;
 using System;
+using ff14bot.Managers;
 
 namespace AEAssist.Helper
 {

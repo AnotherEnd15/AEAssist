@@ -15,7 +15,7 @@ namespace AEAssist.AI.Astrologian.Ability
             }
             
             if (!SpellsDefine.Synastry.IsReady()) return -1;
-            var skillTarget = GroupHelper.CastableAlliesWithin30.FirstOrDefault(r => r.CurrentHealth > 0 && r.CurrentHealthPercent <= 10f && r.IsTank());
+            var skillTarget = GroupHelper.CastableAlliesWithin30.FirstOrDefault(r => r.CurrentHealth > 0 && r.CurrentHealthPercent <= 20f && r.IsTank());
             if (skillTarget == null)
             {
                 return -2;

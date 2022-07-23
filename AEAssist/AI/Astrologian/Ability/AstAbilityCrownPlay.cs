@@ -21,10 +21,10 @@ namespace AEAssist.AI.Astrologian.Ability
                 {
                     return 0;
                 }
-                if (TargetHelper.GetNearbyEnemyCount(Core.Me, 20, 20) > 2)
-                {
-                    return 0;
-                }
+                //if (TargetHelper.GetNearbyEnemyCount(Core.Me, 20, 20) > 2)
+                //{
+                    //return 0;
+                //}
 
             }
             if (Core.Me.HasAura(AurasDefine.LadyOfCrownsDrawn))

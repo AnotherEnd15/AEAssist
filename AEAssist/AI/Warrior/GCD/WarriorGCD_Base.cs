@@ -65,7 +65,7 @@ namespace AEAssist.AI.Warrior.GCD
                     else return SpellsDefine.HeavySwing;//重劈
                 case SpellsDefine.Maim:
                     if (SpellsDefine.StormsEye.IsUnlock())
-                        if (tar.HasMyAuraWithTimeleft(AurasDefine.SurgingTempest, 30000))//战场风暴持续时间是否大于10秒
+                        if (tar.HasMyAuraWithTimeleft(AurasDefine.SurgingTempest, 30000))//战场风暴持续时间是否大于30秒
                             return SpellsDefine.StormsPath;//绿斩 暴风斩
                         else return SpellsDefine.StormsEye;//红斩 暴风碎
                     else

@@ -294,6 +294,14 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="AI\DarkKnight\DarkKnight_Rotation.cs" />
     <Compile Include="AI\DarkKnight\DarkKnight_SpellHelper.cs" />
     <Compile Include="AI\DarkKnight\GCD\DarkKnightGCD_Base.cs" />
+    <Compile Include="AI\Dragoon\Ability\DragoonAbility_Base.cs" />
+    <Compile Include="AI\Dragoon\Dragoon_AIPriorityQueue.cs" />
+    <Compile Include="AI\Dragoon\Dragoon_BattleData.cs" />
+    <Compile Include="AI\Dragoon\Dragoon_Rotation.cs" />
+    <Compile Include="AI\Dragoon\Dragoon_SpellHelper.cs" />
+    <Compile Include="AI\Dragoon\GCD\Dragoon_WheelingThrust.cs" />
+    <Compile Include="AI\Dragoon\GCD\Dragoon_FangAndClaw.cs" />
+    <Compile Include="AI\Dragoon\GCD\Dragoon_Base.cs" />
     <Compile Include="AI\GeneralAI\PhysicsRangeDPSHelper.cs" />
     <Compile Include="AI\GunBreaker\Ability\GunBreakerAbility_Bloodfest.cs" />
     <Compile Include="AI\GunBreaker\Ability\GunBreakerAbility_BlastingZone.cs" />
@@ -387,6 +395,8 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="AI\Paladin\Paladin_BattleData.cs" />
     <Compile Include="AI\Paladin\Paladin_Rotation.cs" />
     <Compile Include="AI\Paladin\Paladin_SpellHelper.cs" />
+    <Compile Include="AI\Reaper\OpenerReaperEarlyEnshroud90.cs" />
+    <Compile Include="AI\Reaper\ReaperCombatMessageStrategy.cs" />
     <Compile Include="AI\Reaper\SpellEvent\SpellEvent_EnshourdGCD.cs" />
     <Compile Include="AI\Reaper\SpellEvent\SpellEvent_Lemure.cs" />
     <Compile Include="AI\RedMage\Ability\RedMage_Ability_ContreSixte.cs" />
@@ -424,7 +434,7 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="AI\Sage\GCD\SageGCDPhlegma.cs" />
     <Compile Include="AI\Sage\GCD\SageGCDToxikon.cs" />
     <Compile Include="AI\Sage\OpenerSageStandard90.cs" />
-    <Compile Include="AI\Sage\OpenerSage_Test.cs" />
+    <Compile Include="AI\Sage\OpenerSagePneuma90.cs" />
     <Compile Include="AI\Sage\SageBattleData.cs" />
     <Compile Include="AI\Sage\SageRotation.cs" />
     <Compile Include="AI\Sage\SageSpellHelper.cs" />
@@ -459,10 +469,12 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="AI\Samurai\SpellQueue\SpellQueueSlot_KaeshiSetsugekka.cs" />
     <Compile Include="AI\Samurai\SpellQueue\SpellQueue_OgiNamikiriCombo.cs" />
     <Compile Include="AI\Samurai\SpellQueue\SpellQueue_SetsugekkaCombo.cs" />
+    <Compile Include="AI\Scholar\Ability\Scholar_ChainStratagem.cs" />
     <Compile Include="AI\Scholar\Ability\Scholar_EnergyDrain2.cs" />
     <Compile Include="AI\Scholar\Ability\Scholar_Aetherflow.cs" />
     <Compile Include="AI\Scholar\Ability\Scholar_Dissipation.cs" />
     <Compile Include="AI\Scholar\Ability\Scholar_LucidDreaming.cs" />
+    <Compile Include="AI\Scholar\GCD\ScholarGCD_SummonEos.cs" />
     <Compile Include="AI\Scholar\GCD\ScholarGCD_Dot.cs" />
     <Compile Include="AI\Scholar\GCD\ScholarGCD_Base.cs" />
     <Compile Include="AI\Scholar\Scholar_AIPriorityQueue.cs" />
@@ -620,6 +632,7 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="Setting\Setting\MCHSettings.cs" />
     <Compile Include="Setting\Setting\MonkSettings.cs" />
     <Compile Include="Setting\Setting\NinjaSettings.cs" />
+    <Compile Include="Setting\Setting\DragoonSettings.cs" />
     <Compile Include="Setting\Setting\WarriorSettings.cs" />
     <Compile Include="Setting\Setting\ReaperSettings.cs" />
     <Compile Include="Setting\Setting\SageSettings.cs" />
@@ -660,13 +673,18 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="View\BardSettingView.xaml.cs">
       <DependentUpon>BardSettingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Converters\RangeToBooleanConverter.cs" />
     <Compile Include="View\Overlay\PositionOverlayWindow.xaml.cs">
       <DependentUpon>PositionOverlayWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Overlay\UIComponent\OverlayUIComponent_RedMageOverlay.cs" />
+    <Compile Include="View\Overlay\UIComponent\OverlayUIComponent_DragoonOverlay.cs" />
     <Compile Include="View\Overlay\UIComponent\OverlayUIComponent_WarriorOverlay.cs" />
     <Compile Include="View\Overlay\RedMageOverlayWindow.xaml.cs">
       <DependentUpon>RedMageOverlayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Overlay\DragoonOverlayWindow.xaml.cs">
+      <DependentUpon>DragoonOverlayWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Overlay\WarriorOverlayWindow.xaml.cs">
       <DependentUpon>WarriorOverlayWindow.xaml</DependentUpon>
@@ -893,6 +911,10 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Overlay\RedMageOverlayWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Overlay\DragoonOverlayWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1207,5 +1229,6 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
     <PackageReference Include="System.ObjectModel" Version="4.3.0" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
