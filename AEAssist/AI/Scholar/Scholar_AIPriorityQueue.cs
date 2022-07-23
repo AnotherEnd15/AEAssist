@@ -24,6 +24,7 @@ namespace AEAssist.AI.Scholar
             new ScholarAbility_Dissipation(),//转化
             new ScholarAbility_Aetherflow(),//以太超流            
             new ScholarAbility_EnergyDrain2(),//能量吸收
+            new ScholarAbility_Protraction(),
             new ScholarAbility_LucidDreaming()//醒梦
         };
         public Task<bool> UsePotion()

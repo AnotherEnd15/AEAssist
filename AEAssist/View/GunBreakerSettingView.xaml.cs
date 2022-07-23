@@ -16,6 +16,7 @@ namespace AEAssist.View
             {
                 ChooseOpener.ItemsSource = OpenerMgr.Instance.JobOpeners[ClassJobType.Gunbreaker];
                 ChooseOpener.SelectedValue = SettingMgr.GetSetting<GunBreakerSettings>().GunBreakerOpener;
+                OpenerMgr.Instance.SpecifyOpenerByName[ClassJobType.Gunbreaker] = ChooseOpener.SelectedValue.ToString();
             }
         }
 

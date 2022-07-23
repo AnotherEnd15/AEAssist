@@ -11,11 +11,7 @@ namespace AEAssist.AI.Astrologian.GCD
     {
         public int Check(SpellEntity lastSpell)
         {
-            if (!SettingMgr.GetSetting<AstSettings>().Heal)
-            {
-                return -5;
-            }
-
+            
             if (MovementManager.IsMoving)
             {
                 if (!Core.Me.HasAura(AurasDefine.Lightspeed))
@@ -28,6 +24,14 @@ namespace AEAssist.AI.Astrologian.GCD
             if (Core.Me.HasMyAuraWithTimeleft(AurasDefine.AspectedHelios, 2))
             {
                 return -1;
+            }
+            //if (Core.Me.HasMyAuraWithTimeleft(AurasDefine.NeutralSect,15))
+            //{
+                //return 0;
+            //}
+            if (!SettingMgr.GetSetting<AstSettings>().GcdHeal)
+            {
+                return -5;
             }
             var skillTarget = GroupHelper.CastableAlliesWithin15.Count(r => r.CurrentHealth > 0 && r.CurrentHealthPercent <= 70f);
             if (skillTarget > 2)

@@ -24,9 +24,11 @@ namespace AEAssist.AI.Astrologian.Ability
             return 0;
         }
 
-        public Task<SpellEntity> Run()
+        public async Task<SpellEntity> Run()
         {
-            return AstSpellHelper.CastSynastry();
+            var spell = SpellsDefine.Synastry.GetSpellEntity();
+            var ret = await AstSpellHelper.CastSynastry();
+            return ret ? spell : null;            
         }
     }
 }

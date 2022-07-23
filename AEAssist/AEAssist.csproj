@@ -455,12 +455,11 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_AoERotations.cs" />
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_CoolDownPhase.cs" />
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_Dot.cs" />
-    <Compile Include="AI\Samurai\GCD\SamuraiGCD_EvenMinutesBurst.cs" />
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_Fillers.cs" />
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_Higanbana.cs" />
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_KaeshiSetsugekka.cs" />
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_MidareSetsugekka.cs" />
-    <Compile Include="AI\Samurai\GCD\SamuraiGCD_OddMinuteBurst.cs" />
+    <Compile Include="AI\Samurai\GCD\SamuraiGCD_OddEvenBurst.cs" />
     <Compile Include="AI\Samurai\GCD\SamuraiGCD_OgiNamikiriCombo.cs" />
     <Compile Include="AI\Samurai\SamuraiCombatMessageStrategy.cs" />
     <Compile Include="AI\Samurai\Opener_SamuraiStandard_90.cs" />
@@ -474,6 +473,7 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="AI\Scholar\Ability\Scholar_Aetherflow.cs" />
     <Compile Include="AI\Scholar\Ability\Scholar_Dissipation.cs" />
     <Compile Include="AI\Scholar\Ability\Scholar_LucidDreaming.cs" />
+    <Compile Include="AI\Scholar\Ability\Scholar_Protraction.cs" />
     <Compile Include="AI\Scholar\GCD\ScholarGCD_SummonEos.cs" />
     <Compile Include="AI\Scholar\GCD\ScholarGCD_Dot.cs" />
     <Compile Include="AI\Scholar\GCD\ScholarGCD_Base.cs" />
@@ -674,9 +674,13 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
       <DependentUpon>BardSettingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Converters\RangeToBooleanConverter.cs" />
+    <Compile Include="View\Overlay\SchOverlayWindow.xaml.cs">
+      <DependentUpon>SchOverlayWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Overlay\PositionOverlayWindow.xaml.cs">
       <DependentUpon>PositionOverlayWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Overlay\UIComponent\OverlayUIComponent_SchOverlay.cs" />
     <Compile Include="View\Overlay\UIComponent\OverlayUIComponent_RedMageOverlay.cs" />
     <Compile Include="View\Overlay\UIComponent\OverlayUIComponent_DragoonOverlay.cs" />
     <Compile Include="View\Overlay\UIComponent\OverlayUIComponent_WarriorOverlay.cs" />
@@ -906,6 +910,10 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Resource Include="Resources\Spells\WhiteMage\PlenaryIndulgence.png" />
     <Resource Include="Resources\Spells\WhiteMage\PresenceofMind.png" />
     <Resource Include="Resources\Spells\WhiteMage\ThinAir.png" />
+    <Page Include="View\Overlay\SchOverlayWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Overlay\PositionOverlayWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

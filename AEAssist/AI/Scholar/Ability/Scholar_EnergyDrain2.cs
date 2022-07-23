@@ -20,7 +20,7 @@ namespace AEAssist.AI.Scholar.Ability
             {
                 return SpellsDefine.EnergyDrain2;//打空转化豆子
             }
-            if (ActionResourceManager.Scholar.Aetherflow > 0 && SpellsDefine.Aetherflow.CoolDownInGCDs(3))//吸收转好前打光豆子
+            if (ActionResourceManager.Scholar.Aetherflow > 0 && (SpellsDefine.Aetherflow.CoolDownInGCDs(3) || SpellsDefine.Dissipation.CoolDownInGCDs(3)))//吸收转好前打光豆子
                 return SpellsDefine.EnergyDrain2;
             return 0;
         }

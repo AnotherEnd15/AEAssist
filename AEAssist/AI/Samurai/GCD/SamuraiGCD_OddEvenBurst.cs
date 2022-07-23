@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.GCD
 {
-    public class SamuraiGCD_OddMinuteBurst : IAIHandler
+    public class SamuraiGCD_OddEvenBurst : IAIHandler
     {
         public int Check(SpellEntity lastSpell)
         {
@@ -22,25 +22,23 @@ namespace AEAssist.AI.Samurai.GCD
                 }   
             }
 
-            if (bd.CurrPhase != SamuraiPhase.OddMinutesBurstPhase)
+            if (bd.CurrPhase == SamuraiPhase.OddMinutesBurstPhase || bd.CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
             {
-                return -1;
+                LogHelper.Info("We are in Burst Window now");
+                return 0;
             }
-
             
-            LogHelper.Info("We are in OddBurst now");
-            return 0;
+            return -1;
         }
 
         public async Task<SpellEntity> Run()
         {
-            var spell = SamuraiSpellHelper.OddMinutesBurst();
+            var spell = SamuraiSpellHelper.Burst();
             if (spell == null)
                 return null;
             var ret = await spell.DoGCD();
             if (ret)
             {
-                AIRoot.GetBattleData<SamuraiBattleData>().higanBanaCount++;
                 return spell;
             }
             return null;

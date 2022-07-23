@@ -14,8 +14,8 @@ namespace AEAssist.AI.GunBreaker.Ability
                 return -1;
             if (!SpellsDefine.NoMercy.GetSpellEntity().SpellData.IsReady())
                 return -2;
-            if (Core.Me.ClassLevel == 90 && AIRoot.GetBattleData<GunBreakerBattleData>().A_State)
-                return -5;
+            //if (Core.Me.ClassLevel == 90 && AIRoot.GetBattleData<GunBreakerBattleData>().A_State)
+            //    return -5;
             var time = SettingMgr.GetSetting<GeneralSettings>().RegionOfAbility;
             if (TimeHelper.Now() - AIRoot.GetBattleData<BattleData>().lastCastTime < time - 100)
                 return -3;

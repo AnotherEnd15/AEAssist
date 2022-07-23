@@ -21,12 +21,7 @@ namespace AEAssist.AI.Samurai.GCD
                 return -1;
             }
             
-            // if (AIRoot.GetBattleData<SamuraiBattleData>().CurrCombo == SamuraiComboStages.MidareSetsuGekka
-            //     && SpellsDefine.TsubameGaeshi.GetSpellEntity().SpellData.Charges >= 1)
-            // {
-            //     return -1;
-            // }
-
+            LogHelper.Info("We are in COOLDOWn NOW");
             return 0;
         }
 
@@ -34,6 +29,7 @@ namespace AEAssist.AI.Samurai.GCD
         {
             // CoolDownPhase
             AIRoot.GetBattleData<SamuraiBattleData>().burstingShintenCount = 0;
+            AIRoot.GetBattleData<SamuraiBattleData>().burstingMeikyoShisuiCount = 0;
             var spell = SamuraiSpellHelper.CoolDownPhaseGCD(Core.Me.CurrentTarget);
             if (spell == null)
                 return null;

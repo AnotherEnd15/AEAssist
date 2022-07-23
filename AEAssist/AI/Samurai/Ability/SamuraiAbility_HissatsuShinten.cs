@@ -17,7 +17,7 @@ namespace AEAssist.AI.Samurai.Ability
                 return -3;
             }
 
-            if (ActionResourceManager.Samurai.Kenki == 100)
+            if (ActionResourceManager.Samurai.Kenki >= 90)
             {
                 return 6;
             }

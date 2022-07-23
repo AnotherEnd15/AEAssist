@@ -9,7 +9,8 @@ namespace AEAssist.AI.Samurai.GCD
     {
         public int Check(SpellEntity lastSpell)
         {
-            LogHelper.Info("Current Phase: " + AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase);
+            // LogHelper.Info("Current Phase: " + AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase);
+            // LogHelper.Info("MidareCount = " + AIRoot.GetBattleData<SamuraiBattleData>().MidareSetsugekkaCount);
             if (SamuraiSpellHelper.SenCounts() == 3)
             {
                 if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.CooldownPhase)
@@ -20,15 +21,21 @@ namespace AEAssist.AI.Samurai.GCD
                         return 0;   
                     }
                     // Already used 1 time so the next time we use it it will be in Oddminutes.
-                    AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.OddMinutesBurstPhase;
+                    // only go into Oddphase If we have charges of MeikyoShisui
+                    if (SpellsDefine.MeikyoShisui.IsReady())
+                    {
+                        AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.OddMinutesBurstPhase;
+                    }
+                    
                     // reset count.
                     AIRoot.GetBattleData<SamuraiBattleData>().MidareSetsugekkaCount = 0;
-                    return -1;
+                    return 0;
                 }
                 
-                if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.OddMinutesBurstPhase)
+                if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.OddMinutesBurstPhase
+                    || AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
                 {
-                    if (AIRoot.GetBattleData<SamuraiBattleData>().MidareSetsugekkaCount < 2)
+                    if (AIRoot.GetBattleData<SamuraiBattleData>().MidareSetsugekkaCount < 1)
                     {
                         AIRoot.GetBattleData<SamuraiBattleData>().MidareSetsugekkaCount++;
                         return 0;   
@@ -37,10 +44,9 @@ namespace AEAssist.AI.Samurai.GCD
                     AIRoot.GetBattleData<SamuraiBattleData>().MidareSetsugekkaCount = 0;
                     // go back to cooldown.
                     AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.CooldownPhase;
-                    return -2;
+                    return 0;
                 }
                 
-                // otherwise it's even.
                 return 0;
             }
 
@@ -49,14 +55,11 @@ namespace AEAssist.AI.Samurai.GCD
 
         public async Task<SpellEntity> Run()
         {
-            var spell = SamuraiSpellHelper.CoolDownPhaseGCD(Core.Me.CurrentTarget);
+            var spell = SamuraiSpellHelper.GetMidareSetsuGekka();
             if (spell == null)
                 return null;
-            var ret = await SamuraiSpellHelper.GetMidareSetsuGekka().DoGCD();
-            if (ret)
-                return spell;
-            return null;
-            
+            var ret = await spell.DoGCD();
+            return ret ? spell : null;
         }
     }
 }

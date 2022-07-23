@@ -28,6 +28,8 @@
         TenkaGoken,
         MidareSetsuGekka,
         KaeshiSetsugekka,
+        OgiNamiKiri,
+        KaeshiNamikiri,
 
     }
 
@@ -38,7 +40,7 @@
         public int burstingShintenCount = 0;
         public int MidareSetsugekkaCount = 0;
         public int higanBanaCount = 0;
-        public long time = 0;
+        public long burstingMeikyoShisuiCount = 0;
         
         
         public SamuraiComboStages CurrCombo = SamuraiComboStages.Hakaze;

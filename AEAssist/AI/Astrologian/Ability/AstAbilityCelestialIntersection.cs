@@ -27,9 +27,11 @@ namespace AEAssist.AI.Astrologian.Ability
             return 0;
         }
 
-        public Task<SpellEntity> Run()
+        public async Task<SpellEntity> Run()
         {
-            return AstSpellHelper.CastCelestialIntersection();
+            var spell = SpellsDefine.CelestialIntersection.GetSpellEntity();
+            var ret = await AstSpellHelper.CastCelestialIntersection();
+            return ret ? spell : null;            
         }
     }
 }
