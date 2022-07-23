@@ -116,7 +116,8 @@
     <Compile Include="TriggerModel\TriggerAction\TriggerAction_SwitchDOT.cs" />
     <Compile Include="TriggerModel\TriggerAction\TriggerAction_SwitchFinalBurst.cs" />
     <Compile Include="TriggerModel\TriggerAction\TriggerAction_SwitchPotion.cs" />
-    <Compile Include="TriggerModel\TriggerAction\TriggerAction_SwitchSong.cs" />
+    <Compile Include="TriggerModel\TriggerAction\TriggerAction_SwitchSong.cs" />    
+    <Compile Include="TriggerModel\TriggerAction\TriggerAction_ToggleStop.cs" />
     <Compile Include="TriggerModel\TriggerAction\TriggerAction_UsePotion.cs" />
     <Compile Include="TriggerModel\TriggerAttribute.cs" />
     <Compile Include="TriggerModel\TriggerCond\TriggerCond_AfterBattleStart.cs" />

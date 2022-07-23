@@ -126,6 +126,9 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="..\AETriggers\TriggerModel\TriggerAction\TriggerAction_SwitchSong.cs">
       <Link>TriggerModel\TriggerAction\TriggerAction_SwitchSong.cs</Link>
     </Compile>
+    <Compile Include="..\AETriggers\TriggerModel\TriggerAction\TriggerAction_ToggleStop.cs">
+      <Link>TriggerModel\TriggerAction\TriggerAction_ToggleStop.cs</Link>
+    </Compile>
     <Compile Include="..\AETriggers\TriggerModel\TriggerAction\TriggerAction_UsePotion.cs">
       <Link>TriggerModel\TriggerAction\TriggerAction_UsePotion.cs</Link>
     </Compile>
@@ -641,6 +644,7 @@ xcopy "$(SolutionDir)))\Output" "C:\Users\Black\Documents\Rebornbuddy64\Routines
     <Compile Include="TriggerSystem\TriggerAction\TriggerActionHandler_SwitchFinalBurstHandler.cs" />
     <Compile Include="TriggerSystem\TriggerAction\TriggerActionHandler_SwitchPotion.cs" />
     <Compile Include="TriggerSystem\TriggerAction\TriggerActionHandler_SwitchSong.cs" />
+    <Compile Include="TriggerSystem\TriggerAction\TriggerActionHandler_ToggleStop.cs" />
     <Compile Include="TriggerSystem\TriggerAction\TriggerActionHandler_UsePotion.cs" />
     <Compile Include="TriggerSystem\TriggerCond\TriggerCondHandler_AfterBattleStart.cs" />
     <Compile Include="TriggerSystem\TriggerCond\TriggerCondHandler_AfterOtherTrigger.cs" />
