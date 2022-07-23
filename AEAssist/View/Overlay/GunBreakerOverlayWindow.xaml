@@ -20,77 +20,115 @@
             <BooleanToVisibilityConverter x:Key="BoolToVis" />
 
             <view:RangeToBooleanConverter x:Key="conv" />
-            <Style x:Key="TextBlock1" TargetType="{x:Type TextBlock}">
+            <Style x:Key="TextBlock1"
+                   TargetType="{x:Type TextBlock}">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=Opacity, RelativeSource={RelativeSource Self}, Converter={StaticResource conv}}"
-                                             Value="True">
-                        <Setter Property="HorizontalAlignment" Value="Left" />
+                                 Value="True">
+                        <Setter Property="HorizontalAlignment"
+                                Value="Left" />
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
-            <SolidColorBrush x:Key="ProgressBar.Progress" Color="#FF06B025"/>
-            <SolidColorBrush x:Key="ProgressBar.Background" Color="#FFE6E6E6"/>
-            <SolidColorBrush x:Key="ProgressBar.Border" Color="#FFBCBCBC"/>
-            <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
-                <Setter Property="Foreground" Value="{StaticResource ProgressBar.Progress}"/>
-                <Setter Property="Background" Value="{StaticResource ProgressBar.Background}"/>
-                <Setter Property="BorderBrush" Value="{StaticResource ProgressBar.Border}"/>
-                <Setter Property="BorderThickness" Value="1"/>
+            <SolidColorBrush x:Key="ProgressBar.Progress"
+                             Color="#FF06B025" />
+            <SolidColorBrush x:Key="ProgressBar.Background"
+                             Color="#FFE6E6E6" />
+            <SolidColorBrush x:Key="ProgressBar.Border"
+                             Color="#FFBCBCBC" />
+            <Style x:Key="ProgressBarStyle1"
+                   TargetType="{x:Type ProgressBar}">
+                <Setter Property="Foreground"
+                        Value="{StaticResource ProgressBar.Progress}" />
+                <Setter Property="Background"
+                        Value="{StaticResource ProgressBar.Background}" />
+                <Setter Property="BorderBrush"
+                        Value="{StaticResource ProgressBar.Border}" />
+                <Setter Property="BorderThickness"
+                        Value="1" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ProgressBar}">
                             <Grid x:Name="TemplateRoot">
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="Determinate"/>
+                                        <VisualState x:Name="Determinate" />
                                         <VisualState x:Name="Indeterminate">
                                             <Storyboard RepeatBehavior="Forever">
-                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
-                                                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
-                                                    <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Animation"
+                                                                               Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                                    <EasingDoubleKeyFrame KeyTime="0"
+                                                                          Value="0.25" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:1"
+                                                                          Value="0.25" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:2"
+                                                                          Value="0.25" />
                                                 </DoubleAnimationUsingKeyFrames>
-                                                <PointAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
-                                                    <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
-                                                    <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
-                                                    <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
+                                                <PointAnimationUsingKeyFrames Storyboard.TargetName="Animation"
+                                                                              Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
+                                                    <EasingPointKeyFrame KeyTime="0"
+                                                                         Value="-0.5,0.5" />
+                                                    <EasingPointKeyFrame KeyTime="0:0:1"
+                                                                         Value="0.5,0.5" />
+                                                    <EasingPointKeyFrame KeyTime="0:0:2"
+                                                                         Value="1.5,0.5" />
                                                 </PointAnimationUsingKeyFrames>
                                             </Storyboard>
                                         </VisualState>
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
-                                <Border Background="Green" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <Border Background="Green"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
                                     <Grid>
-                                        <Rectangle Fill="#FF75E475" HorizontalAlignment="Left" Width="130"/>
-                                        <Rectangle Fill="Yellow" HorizontalAlignment="Right" Width="90"/>
-                                        <Rectangle Fill="Red" Width="70" HorizontalAlignment="Right"/>
+                                        <Rectangle Fill="#FF75E475"
+                                                   HorizontalAlignment="Left"
+                                                   Width="130" />
+                                        <Rectangle Fill="Yellow"
+                                                   HorizontalAlignment="Right"
+                                                   Width="90" />
+                                        <Rectangle Fill="Red"
+                                                   Width="70"
+                                                   HorizontalAlignment="Right" />
                                     </Grid>
                                 </Border>
-                                <Rectangle x:Name="PART_Track" d:IsHidden="True"/>
-                                <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left" d:IsHidden="True">
-                                    <Rectangle x:Name="Indicator" Fill="Green"/>
-                                    <Rectangle x:Name="Animation" Fill="Green" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle x:Name="PART_Track"
+                                           d:IsHidden="True" />
+                                <Grid x:Name="PART_Indicator"
+                                      ClipToBounds="true"
+                                      HorizontalAlignment="Left"
+                                      d:IsHidden="True">
+                                    <Rectangle x:Name="Indicator"
+                                               Fill="Green" />
+                                    <Rectangle x:Name="Animation"
+                                               Fill="Green"
+                                               RenderTransformOrigin="0.5,0.5">
                                         <Rectangle.RenderTransform>
                                             <TransformGroup>
-                                                <ScaleTransform/>
-                                                <SkewTransform/>
-                                                <RotateTransform/>
-                                                <TranslateTransform/>
+                                                <ScaleTransform />
+                                                <SkewTransform />
+                                                <RotateTransform />
+                                                <TranslateTransform />
                                             </TransformGroup>
                                         </Rectangle.RenderTransform>
                                     </Rectangle>
                                 </Grid>
                             </Grid>
                             <ControlTemplate.Triggers>
-                                <Trigger Property="Orientation" Value="Vertical">
-                                    <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                <Trigger Property="Orientation"
+                                         Value="Vertical">
+                                    <Setter Property="LayoutTransform"
+                                            TargetName="TemplateRoot">
                                         <Setter.Value>
-                                            <RotateTransform Angle="-90"/>
+                                            <RotateTransform Angle="-90" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
-                                <Trigger Property="IsIndeterminate" Value="true">
-                                    <Setter Property="Visibility" TargetName="Indicator" Value="Collapsed"/>
+                                <Trigger Property="IsIndeterminate"
+                                         Value="true">
+                                    <Setter Property="Visibility"
+                                            TargetName="Indicator"
+                                            Value="Collapsed" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -101,7 +139,7 @@
     </UserControl.Resources>
     <UserControl.RenderTransform>
         <ScaleTransform ScaleX="{Binding GeneralSettings.OverlayScale_X}"
-                        ScaleY="{Binding GeneralSettings.OverlayScale_Y}"/>
+                        ScaleY="{Binding GeneralSettings.OverlayScale_Y}" />
     </UserControl.RenderTransform>
     <UserControl.DataContext>
         <Binding Source="{x:Static dataBinding:DataBinding.Instance}" />
@@ -109,35 +147,50 @@
     <StackPanel>
         <view:OverlayHeader />
         <Border Visibility="{Binding OverlayVisibility, Converter={StaticResource BoolToVis}}"
-                VerticalAlignment="Top" CornerRadius="5" Padding="10">
+                VerticalAlignment="Top"
+                CornerRadius="5"
+                Padding="10">
             <Border.Background>
-                <SolidColorBrush Color="#101011" Opacity="0.6" />
+                <SolidColorBrush Color="#101011"
+                                 Opacity="0.6" />
             </Border.Background>
             <StackPanel>
                 <Grid>
-                    <ProgressBar Style="{DynamicResource ProgressBarStyle1}" x:Name = "MeleeDistance" Value = "{Binding MeleePosition.TargetDistance}" Margin = "5" Maximum = "440"
-                         Height = "30" IsIndeterminate = "False" 
-                         BorderThickness="3"
-                         Width = "220">
+                    <ProgressBar Style="{DynamicResource ProgressBarStyle1}"
+                                 x:Name="MeleeDistance"
+                                 Value="{Binding MeleePosition.TargetDistance}"
+                                 Margin="5"
+                                 Maximum="440"
+                                 Height="30"
+                                 IsIndeterminate="False"
+                                 BorderThickness="3"
+                                 Width="220">
                     </ProgressBar>
-                    <TextBlock x:Name="test" Text="{Binding GNBdisg,Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1">
+                    <TextBlock x:Name="test"
+                               Text="{Binding Gnbdis,Mode=TwoWay,StringFormat=目标圈距离:{0:}}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Opacity="1">
                         <TextBlock.Background>
-                            <SolidColorBrush Color="#FFF3E7E7" Opacity="0"/>
+                            <SolidColorBrush Color="#FFF3E7E7"
+                                             Opacity="0" />
                         </TextBlock.Background>
                     </TextBlock>
                 </Grid>
-                <WrapPanel Width="250" Orientation="Horizontal" HorizontalAlignment="Center"
+                <WrapPanel Width="250"
+                           Orientation="Horizontal"
+                           HorizontalAlignment="Center"
                            VerticalAlignment="Top">
                     <WrapPanel>
-                        <CheckBox
-                            Content="{Binding HotkeySetting.StopBtnName}"
-                            Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                            IsChecked="{Binding Stop,Mode=TwoWay}" />
+                        <CheckBox Content="{Binding HotkeySetting.StopBtnName}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding Stop,Mode=TwoWay}" />
 
                         <CheckBox HorizontalContentAlignment="Center"
                                   Content="{Binding HotkeySetting.CloseBuffBtnName}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding Burst,Mode=TwoWay}" />
+                                  IsChecked="{Binding Burst,Mode=TwoWay}"
+                                  ToolTip="关闭后不使用无情、倍攻等60sCD技能" />
 
                         <CheckBox HorizontalContentAlignment="Center"
                                   Content="AOE"
@@ -167,49 +220,90 @@
                         <CheckBox HorizontalContentAlignment="Center"
                                   Content="ManualControl"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding GNBManualControl,Mode=TwoWay}" />
+                                  IsChecked="{Binding GNBManualControl,Mode=TwoWay}"
+                                  ToolTip="打开后按钮 起手突进/远程 失效，开战前不使用任何技能，适合脸开或者手动控制" />
 
                     </WrapPanel>
                     <WrapPanel Margin="10">
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UseSprint" Click="UseSprint_OnClick">
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UseSprint"
+                                Click="UseSprint_OnClick">
 
-                            <Image Source="../../Resources/Spells/Sprint.png" Stretch="Uniform" />
+                            <Image Source="../../Resources/Spells/Sprint.png"
+                                   Stretch="Uniform" />
                         </Button>
 
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UsePotion" Click="UsePotion_OnClick">
-                            <Image Source="../../Resources/Spells/Potion.png" Stretch="Uniform" />
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UsePotion"
+                                Click="UsePotion_OnClick">
+                            <Image Source="../../Resources/Spells/Potion.png"
+                                   Stretch="Uniform" />
                         </Button>
 
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UseRampart" Click="UseRampart_OnClick">
-                            <Image Source="../../Resources/Spells/TankRoleActions/Rampart.png" Stretch="Uniform" />
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UseRampart"
+                                Click="UseRampart_OnClick">
+                            <Image Source="../../Resources/Spells/TankRoleActions/Rampart.png"
+                                   Stretch="Uniform" />
                         </Button>
 
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UseReprisal" Click="UseReprisal_OnClick">
-                            <Image Source="../../Resources/Spells/TankRoleActions/Reprisal.png" Stretch="Uniform" />
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UseReprisal"
+                                Click="UseReprisal_OnClick">
+                            <Image Source="../../Resources/Spells/TankRoleActions/Reprisal.png"
+                                   Stretch="Uniform" />
                         </Button>
 
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UseSuperbolide" Click="UseSuperbolide_OnClick">
-                            <Image Source="../../Resources/Spells/GunBreaker/Superbolide.png" Stretch="Uniform" />
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UseSuperbolide"
+                                Click="UseSuperbolide_OnClick">
+                            <Image Source="../../Resources/Spells/GunBreaker/Superbolide.png"
+                                   Stretch="Uniform" />
                         </Button>
 
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UseNebula" Click="UseNebula_OnClick">
-                            <Image Source="../../Resources/Spells/GunBreaker/Nebula.png" Stretch="Uniform" />
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UseNebula"
+                                Click="UseNebula_OnClick">
+                            <Image Source="../../Resources/Spells/GunBreaker/Nebula.png"
+                                   Stretch="Uniform" />
                         </Button>
 
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UseCamouflage" Click="UseCamouflage_OnClick">
-                            <Image Source="../../Resources/Spells/GunBreaker/Camouflage.png" Stretch="Uniform" />
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UseCamouflage"
+                                Click="UseCamouflage_OnClick">
+                            <Image Source="../../Resources/Spells/GunBreaker/Camouflage.png"
+                                   Stretch="Uniform" />
                         </Button>
 
                         <Button Style="{StaticResource ImageButton}"
-                                Width="30" Height="30" Margin="5,2,5,2" Name="UseHeartOfCorundum" Click="UseHeartOfCorundum_OnClick">
-                            <Image Source="../../Resources/Spells/GunBreaker/HeartOfCorundum.png" Stretch="Uniform" />
+                                Width="30"
+                                Height="30"
+                                Margin="5,2,5,2"
+                                Name="UseHeartOfCorundum"
+                                Click="UseHeartOfCorundum_OnClick">
+                            <Image Source="../../Resources/Spells/GunBreaker/HeartOfCorundum.png"
+                                   Stretch="Uniform" />
                         </Button>
                     </WrapPanel>
                 </WrapPanel>

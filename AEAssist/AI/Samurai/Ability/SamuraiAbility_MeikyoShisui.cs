@@ -1,4 +1,5 @@
-﻿using AEAssist.Define;
+﻿using System;
+using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using System.Threading.Tasks;
@@ -18,23 +19,39 @@ namespace AEAssist.AI.Samurai.Ability
                     return 0;
                 }
             }
-            
+
+            if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.CooldownPhase)
+            {
+                return -1;
+            }
+
             if (!SpellsDefine.MeikyoShisui.IsReady())
+            {
                 return -14;
-            if (Core.Me.HasAura(AurasDefine.MeikyoShisui) || SpellsDefine.MeikyoShisui.RecentlyUsed())
+            }
+            
+            if (Core.Me.HasAura(AurasDefine.MeikyoShisui))
             {
                 return -13;
             }
-            
+
+            // var charges = Math.Abs(SpellsDefine.MeikyoShisui.GetSpellEntity().SpellData.Charges - 1);
+            // LogHelper.Info("Current charges after - 1: " + charges);
+
             if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.OddMinutesBurstPhase  
                 || AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
             {
-                if (SpellsDefine.MeikyoShisui.GetSpellEntity().SpellData.Charges > 1)
+                if (SpellsDefine.MeikyoShisui.GetSpellEntity().SpellData.Charges >= 1.0)
                 {
-                    return 0;
+                    
+                    {
+                        LogHelper.Info("Use Meikyo...");
+                        AIRoot.GetBattleData<SamuraiBattleData>().burstingMeikyoShisuiCount++;
+                        return 0;
+                    }
                 }
-                
             }
+            
             return -5;
         }
 
@@ -42,7 +59,9 @@ namespace AEAssist.AI.Samurai.Ability
         {
             var spell = SpellsDefine.MeikyoShisui;
             if (await spell.DoAbility())
+            {
                 return spell.GetSpellEntity();
+            }
             return null;
         }
     }

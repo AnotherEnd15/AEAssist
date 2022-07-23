@@ -10,6 +10,7 @@ namespace AEAssist.AI.Samurai.Ability
     {
         public int Check(SpellEntity lastSpell)
         {
+            LogHelper.Info("current Phase" +   AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase);
             if (ActionResourceManager.Samurai.Kenki < 25)
             {
                 return -10;
@@ -22,8 +23,11 @@ namespace AEAssist.AI.Samurai.Ability
 
             if (SpellsDefine.HissatsuSenei.IsReady())
             {
-                AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.EvenMinutesBurstPhase;
-                return 0;
+                if (SpellsDefine.Ikishoten.IsReady())
+                {
+                    AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.EvenMinutesBurstPhase;
+                    return 0;
+                }
             }
 
             return -4;
@@ -34,7 +38,9 @@ namespace AEAssist.AI.Samurai.Ability
             var spell = SpellsDefine.HissatsuSenei.GetSpellEntity();
             if (spell == null) return null;
             if (await spell.DoAbility())
+            {
                 return spell;
+            }
             return null;
         }
     }

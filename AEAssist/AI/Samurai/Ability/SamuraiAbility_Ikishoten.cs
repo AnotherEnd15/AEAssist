@@ -11,22 +11,22 @@ namespace AEAssist.AI.Samurai.Ability
         public int Check(SpellEntity lastSpell)
         {
             if (!SpellsDefine.Ikishoten.IsUnlock()) return -1;
-            
-            if (SpellsDefine.Ikishoten.GetSpellEntity().Cooldown == TimeSpan.FromMilliseconds(60000))
+
+            if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
             {
-                AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.OddMinutesBurstPhase;
-                return -1;
+                if (SpellsDefine.Ikishoten.IsReady())
+                {
+                    return 0;
+                }
             }
             
-            if (SpellsDefine.Ikishoten.GetSpellEntity().Cooldown == TimeSpan.FromMilliseconds(120000))
-            {
-                AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.CooldownPhase;
-                return -1;
-            }
+            LogHelper.Info("Cooldown for Senei: " + SpellsDefine.HissatsuSenei.GetSpellEntity().Cooldown);
             
-            if (SpellsDefine.Ikishoten.GetSpellEntity().IsReady() &&
-                ActionResourceManager.Samurai.Kenki < 50)
-                return 1;
+            // if (SpellsDefine.HissatsuSenei.GetSpellEntity().Cooldown == TimeSpan.FromMilliseconds(119000))
+            // {
+            //     return 0;
+            // }
+            
             return -1;
         }
 

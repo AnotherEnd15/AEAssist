@@ -10,11 +10,14 @@ namespace AEAssist.AI.Astrologian.Ability
     {
         public int Check(SpellEntity lastSpell)
         {
-
+            
             if (!SpellsDefine.CrownPlay.IsReady()) return -1;
+            
             if (AIRoot.Instance.CloseBurst)
                 return -3;
             if (!(Core.Me.HasAura(AurasDefine.LordOfCrownsDrawn) || Core.Me.HasAura(AurasDefine.LadyOfCrownsDrawn))) return -2;
+            if (AEAssist.DataBinding.Instance.FinalBurst)
+                return 0;
             if (Core.Me.HasAura(AurasDefine.LordOfCrownsDrawn))
             {
                 if (SpellsDefine.MinorArcana.GetSpellEntity().Cooldown.TotalSeconds < 10)

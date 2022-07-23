@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AEAssist.View.Overlay.AstOverlayWindow"
+﻿<UserControl x:Class="AEAssist.View.Overlay.SchOverlayWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -70,32 +70,13 @@
                         <CheckBox HorizontalContentAlignment="Center"
                                   Content="{Binding Language.Toggle_LucidDreaming}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding AstSettings.LucidDreamingToggle,Mode=TwoWay}" />
+                                  IsChecked="{Binding SchSettings.LucidDreamingToggle,Mode=TwoWay}" />
 
                         <CheckBox HorizontalContentAlignment="Center"
                                   Content="{Binding Language.Toggle_SwiftRes}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding AstSettings.SwiftResToggle,Mode=TwoWay}" />
-                        <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Heal}"
-                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding AstSettings.Heal,Mode=TwoWay}" />
-                        <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Divination}"
-                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding AstSettings.Divination,Mode=TwoWay}" />
-                        <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Lightspeed}"
-                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding AstSettings.Lightspeed,Mode=TwoWay}" />
-                        <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.GcdHeal}"
-                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding AstSettings.GcdHeal,Mode=TwoWay}" />
-                        <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Toggle_FinalBurst}"
-                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
-                                  IsChecked="{Binding FinalBurst,Mode=TwoWay}" />
+                                  IsChecked="{Binding SchSettings.SwiftResToggle,Mode=TwoWay}" />
+                        
                     </WrapPanel>
                     <WrapPanel Margin="10">
                         <Button Style="{StaticResource ImageButton}"
@@ -122,6 +103,7 @@
                     </StackPanel>
 
                     <StackPanel Margin="5" Background="Purple" Orientation="Horizontal">
+                        <!--
                         <Button Style="{StaticResource ImageButton}"
                                 Width="40" Height="40" Margin="6,2,6,2" Name="UseEarthlyStar"
                                 ToolTip="Use EarthlyStar"
@@ -153,9 +135,10 @@
                             <Image Source="../../Resources/Spells/Ast/AspectedHelios.png"
                                    Stretch="Uniform" />
                         </Button>
-                        
+                        -->
                     </StackPanel>
                     <StackPanel Margin="5" Background="Purple" Orientation="Horizontal">
+                        <!--
                         <Button Style="{StaticResource ImageButton}"
                                 Width="40" Height="40" Margin="6,2,6,2" Name="BeneficII"
                                 ToolTip="Use Benefic II"
@@ -163,6 +146,7 @@
                             <Image Source="../../Resources/Spells/Ast/BeneficII.png"
                                    Stretch="Uniform" />
                         </Button>
+                        -->
 
                     </StackPanel>
                     <!--

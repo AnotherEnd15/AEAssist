@@ -257,6 +257,7 @@ namespace AEAssist
 
         public string Lightspeed { get; set; }
         public string UseCDPull { get; set; }
+        public string GcdHeal { get; set; }
 
         #endregion
 
@@ -330,7 +331,7 @@ namespace AEAssist
         public string TextBox_Regen { get; set; }
         public string TextBox_AfflatusSolace { get; set; }
 
-
+        public string Textbox_Sch_DotTimeLeft { get; set; }
 
 
     }

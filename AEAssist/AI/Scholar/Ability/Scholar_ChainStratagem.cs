@@ -24,6 +24,10 @@ namespace AEAssist.AI.Scholar.Ability
             if (!spell.IsReady())
                 return -2;
             //LogHelper.Debug("NO10:" + spell.ToString());
+            if (!Core.Me.CurrentTarget.IsBoss())
+            {
+                return -3;
+            }
             return 0;
         }
 

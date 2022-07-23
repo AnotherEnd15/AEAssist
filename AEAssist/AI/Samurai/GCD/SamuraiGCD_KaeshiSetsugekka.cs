@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 
@@ -9,17 +8,18 @@ namespace AEAssist.AI.Samurai.GCD
     {
         public int Check(SpellEntity lastSpell)
         {
-            if (AIRoot.GetBattleData<SamuraiBattleData>().CurrCombo == SamuraiComboStages.MidareSetsuGekka
-                && SpellsDefine.TsubameGaeshi.GetSpellEntity().SpellData.Charges >= 1
-                )
+            // Only use it during odd or even bursts.
+            if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.OddMinutesBurstPhase
+                || AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
             {
-                // Only use it during odd or even bursts.
-                if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.OddMinutesBurstPhase
-                    || AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
+                if (AIRoot.GetBattleData<SamuraiBattleData>().CurrCombo == SamuraiComboStages.MidareSetsuGekka
+                    && SpellsDefine.TsubameGaeshi.GetSpellEntity().SpellData.Charges >= 1
+                   )
                 {
                     return 0;
                 }
-            }
+            } 
+            
             return -1;
         }
 

@@ -26,7 +26,11 @@ namespace AEAssist.AI.Samurai.GCD
         public async Task<SpellEntity> Run()
         {
             if (await SpellsDefine.Higanbana.DoGCD())
+            {
+                AIRoot.GetBattleData<SamuraiBattleData>().higanBanaCount++;
+                AIRoot.GetBattleData<SamuraiBattleData>().CurrCombo = SamuraiComboStages.HiganBana;
                 return SpellsDefine.Higanbana.GetSpellEntity();
+            }
             return null;
         }
     }

@@ -11,7 +11,7 @@ namespace AEAssist.AI.Astrologian
     {
         public void Init()
         {
-            //CountDownHandler.Instance.AddListener(15000, WhiteMageSpellHelper.PrePullEukrasianDiagnosisThreePeople);
+            CountDownHandler.Instance.AddListener(15000, AstSpellHelper.CastNeutralSect);
             CountDownHandler.Instance.AddListener(2500, () =>
             PotionHelper.UsePotion(SettingMgr.GetSetting<GeneralSettings>().MindPotionId));
             CountDownHandler.Instance.AddListener(1500, () => AstSpellHelper.GetBaseGcd().DoGCD());

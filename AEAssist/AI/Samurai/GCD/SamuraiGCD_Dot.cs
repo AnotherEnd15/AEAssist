@@ -36,7 +36,7 @@ namespace AEAssist.AI.Samurai.GCD
 
         public async Task<SpellEntity> Run()
         {
-            var spell = SamuraiSpellHelper.OddMinutesBurst();
+            var spell = SamuraiSpellHelper.Burst();
             if (spell == null)
                 return null;
             var ret = await spell.DoGCD();

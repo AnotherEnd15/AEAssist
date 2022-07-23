@@ -15,9 +15,9 @@ namespace AEAssist.AI.Sage.GCD
             {
                 AurasDefine.BattleLitany,
                 AurasDefine.Brotherhood,
-                AurasDefine.ArcaneCircle,
+                //AurasDefine.ArcaneCircle,
                 AurasDefine.BattleVoice,
-                AurasDefine.SearingLight,
+                //AurasDefine.SearingLight,
                 AurasDefine.Embolden,
                 AurasDefine.Divination,
                 AurasDefine.VulnerabilityTrickAttack,

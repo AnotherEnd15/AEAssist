@@ -126,6 +126,7 @@
   "Divination" : "Divination",
   "Lightspeed" : "Lightspeed",
   "UseCDPull" : "UseCDPull",
+  "GcdHeal" : "GcdHeal",
   "Toggle_Divination" : "Divination",
   "Toggle_LightSpeed" : "LightSpeed",
   "Toggle_UseTrueNorthWhenMissActionDir" : "UseTrueNorthWhenMissActionDir",
@@ -166,5 +167,6 @@
   "TextBox_Tetragrammaton" : "Tetragrammaton",
   "TextBox_DivineBenison" : "DivineBenison",
   "TextBox_Regen" : "Regen",
-  "TextBox_AfflatusSolace" : "AfflatusSolace"
+  "TextBox_AfflatusSolace" : "AfflatusSolace",
+  "Textbox_Sch_DotTimeLeft" : "Sch"
 }

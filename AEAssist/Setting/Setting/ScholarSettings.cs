@@ -18,15 +18,13 @@ namespace AEAssist
             EarlyDecisionMode = false;//提前决策模式
             Dot_TimeLeft = ConstValue.AuraTick;
             TTK_Aero = 30;
-            WhiteMageOpener = "Default";
-            TetragrammatonHp = 80f;
-            DivineBenisonHp = 90f;
-            RegenHp = 80f;
+            SchOpener = "Default";
+            
         }
         public void OnLoad()
         {
-            OpenerMgr.Instance.SpecifyOpenerByName[ClassJobType.WhiteMage] = WhiteMageOpener;
-            LogHelper.Info($"WhiteMage Opener: {WhiteMageOpener}");
+            OpenerMgr.Instance.SpecifyOpenerByName[ClassJobType.Scholar] = SchOpener;
+            LogHelper.Info($"Sch Opener: {SchOpener}");
         }
         public int Dot_TimeLeft { get; set; } = ConstValue.AuraTick;
         public int TTK_Aero { get; set; }
@@ -36,13 +34,8 @@ namespace AEAssist
         public bool SwiftResToggle { get; set; } = true;
         public bool Heal { get; set; } = true;
         public bool EarlyDecisionMode { get; set; }
-        public string WhiteMageOpener { get; set; } = "Default";
-        public int WhiteMageResPriority { get; set; } = 0;
-        public float TetragrammatonHp { get; set; } = 80f;
-
-        public float DivineBenisonHp { get; set; } = 90f;
-        public float RegenHp { get; set; } = 80f;
-
-        public float AfflatusSolaceHp { get; set; } = 70f;
+        public string SchOpener { get; set; } = "Default";
+        public int SchResPriority { get; set; } = 0;
+        
     }
 }

@@ -8,9 +8,14 @@ namespace AEAssist.AI.Astrologian.Ability
     {
         public int Check(SpellEntity lastSpell)
         {
-            if (!SettingMgr.GetSetting<AstSettings>().DivinationToggle) return -3;
+            //if (!SettingMgr.GetSetting<AstSettings>().DivinationToggle) return -3;
             if (!SpellsDefine.Divination.IsReady()) return -1;
-            if (!SettingMgr.GetSetting<AstSettings>().divination)
+            if (AIRoot.GetBattleData<BattleData>().CurrBattleTimeInMs < 4000)
+            {
+                return -7;
+            }           
+
+            if (!SettingMgr.GetSetting<AstSettings>().Divination)
             {
                 return -3;
             }
@@ -24,8 +29,8 @@ namespace AEAssist.AI.Astrologian.Ability
         {
             var spell = SpellsDefine.Divination.GetSpellEntity();
             if (spell == null) return null;
-            AIRoot.GetBattleData<AstBattleData>().half = true;
-            SettingMgr.GetSetting<AstSettings>().AstHalfCard = true;
+            //AIRoot.GetBattleData<AstBattleData>().half = true;
+            //SettingMgr.GetSetting<AstSettings>().AstHalfCard = true;
             var ret = await spell.DoAbility();
             return ret ? spell : null;
         }

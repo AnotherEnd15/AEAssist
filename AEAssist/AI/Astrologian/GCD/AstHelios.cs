@@ -12,7 +12,7 @@ namespace AEAssist.AI.Astrologian.GCD
         public int Check(SpellEntity lastSpell)
         {
             
-            if (!SettingMgr.GetSetting<AstSettings>().Heal)
+            if (!SettingMgr.GetSetting<AstSettings>().GcdHeal)
             {
                 return -5;
             }
